@@ -1,0 +1,7 @@
+{
+  "name": "PsiquiatraInfantil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
