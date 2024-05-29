@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Apellido</ion-label>
+        <ion-input formControlName="apellido" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Edad</ion-label>
+        <ion-input formControlName="edad" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Género</ion-label>
+        <ion-select formControlName="genero" interface="popover" required>
+          <ion-select-option value="masculino">Masculino</ion-select-option>
+          <ion-select-option value="femenino">Femenino</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Correo Electrónico</ion-label>
+        <ion-input formControlName="correo" type="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input formControlName="password" type="password" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Confirmar Contraseña</ion-label>
+        <ion-input formControlName="confirmPassword" type="password" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('confirmPassword')?.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched">
+          Las contraseñas no coinciden.
+        </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Afiliación de Salud</ion-label>
+        <ion-select formControlName="afiliacionSalud" interface="popover" required>
+          <ion-select-option value="Fonasa">Fonasa</ion-select-option>
+          <ion-select-option value="Isapre">Isapre</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Dirección</ion-label>
+        <ion-input formControlName="direccion" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Nombre Completo del Hijo</ion-label>
+        <ion-input formControlName="nombreHijo" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Edad del Hijo</ion-label>
+        <ion-input formControlName="edadHijo" type="number" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" (click)="registrar()">Registrar</ion-button>
+  </form>
+</ion-content>
+
+
+
+
+
+
+
+

@@ -1,3 +1,29 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content" *ngIf="shouldShowMenu()">
+    <ion-menu contentId="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Menu Content</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list lines="none">
+          <ion-item routerLink="/profile" detail="false">
+            <ion-label>Perfil</ion-label>
+          </ion-item>
+          <ion-item routerLink="/doctors" detail="false">
+            <ion-label>Doctores</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <div class="ion-page" id="main-content">
+      <ion-router-outlet></ion-router-outlet>
+    </div>
+  </ion-split-pane>
+
+  <div class="ion-page" id="main-content" *ngIf="!shouldShowMenu()">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
 </ion-app>
+

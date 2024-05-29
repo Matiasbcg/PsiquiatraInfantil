@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bienvenido</ion-card-title>
+        <ion-card-subtitle>Por favor, inicie sesión para continuar</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <ion-item>
+            <ion-label position="floating">Correo electrónico</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-note *ngIf="email?.invalid && email?.touched" color="danger">
+            <span *ngIf="email?.errors?.['required']">El correo electrónico es obligatorio.</span>
+            <span *ngIf="email?.errors?.['email']">El correo electrónico debe ser válido.</span>
+            <span *ngIf="email?.errors?.['pattern']">El correo electrónico debe contener &#64; y un dominio como .com.</span>
+          </ion-note>
+
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <ion-note *ngIf="password?.invalid && password?.touched" color="danger">
+            <span *ngIf="password?.errors?.['required']">La contraseña es obligatoria.</span>
+            <span *ngIf="password?.errors?.['minlength']">La contraseña debe tener al menos 4 caracteres.</span>
+            <span *ngIf="password?.errors?.['passwordInvalid']">La contraseña debe contener al menos una letra mayúscula y un número.</span>
+          </ion-note>
+
+          <ion-button expand="block" type="submit">Iniciar sesión</ion-button>
+          <ion-button expand="block" routerLink="/register">Registrarse</ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-toast
+    [isOpen]="showToast"
+    message="Cuenta inválida"
+    duration="2000"
+    position="bottom">
+  </ion-toast>
+</ion-content>
+
+
+
+
+
