@@ -1,0 +1,93 @@
+page-doctorinfo {
+    ion-header {
+      --background: #4CAF50;
+      --color: #fff;
+    }
+  
+    ion-toolbar {
+      --background: #4CAF50;
+      --color: #fff;
+    }
+  
+    .fade-in-card {
+      animation: fadeIn 1s ease-in-out;
+    }
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    ion-card {
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  
+    ion-card-header {
+      text-align: center;
+      background-color: #f8f8f8;
+      border-radius: 10px 10px 0 0;
+      padding: 10px;
+    }
+  
+    ion-card-title {
+      font-size: 1.5em;
+      color: #4CAF50;
+    }
+  
+    ion-card-subtitle {
+      font-size: 1em;
+      color: #757575;
+    }
+  
+    ion-img {
+      border-bottom: 1px solid #f8f8f8;
+      padding: 10px;
+      height: 200px;
+      object-fit: cover;
+    }
+  
+    ion-card-content {
+      padding: 10px;
+    }
+  
+    ion-list {
+      --ion-background-color: transparent;
+      padding: 0;
+    }
+  
+    ion-item {
+      --background: transparent;
+      display: block;
+      align-items: flex-start;
+    }
+  
+    .specialties-label {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 10px 0 5px 0;
+      color: #4CAF50;
+    }
+  
+    .specialties-note-item {
+      margin: 5px 0 10px 0;
+    }
+  
+    page-doctorinfo ion-card ion-card-content ion-list ion-item .specialties-note {
+      font-size: 1.5em; /* Increased font size */
+      color: #757575;
+    }
+  }
+  
+  
+  
+  
+  
+  

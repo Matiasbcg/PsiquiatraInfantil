@@ -10,16 +10,26 @@
       <ion-item>
         <ion-label position="stacked">Nombre</ion-label>
         <ion-input formControlName="nombre" type="text" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched">
+          El nombre es obligatorio.
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Apellido</ion-label>
         <ion-input formControlName="apellido" type="text" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('apellido')?.invalid && registerForm.get('apellido')?.touched">
+          El apellido es obligatorio.
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Edad</ion-label>
         <ion-input formControlName="edad" type="number" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('edad')?.invalid && registerForm.get('edad')?.touched">
+          <span *ngIf="registerForm.get('edad')?.errors?.['required']">La edad es obligatoria.</span>
+          <span *ngIf="registerForm.get('edad')?.errors?.['min']">Debe ser mayor de 18 años.</span>
+        </ion-text>
       </ion-item>
 
       <ion-item>
@@ -28,23 +38,35 @@
           <ion-select-option value="masculino">Masculino</ion-select-option>
           <ion-select-option value="femenino">Femenino</ion-select-option>
         </ion-select>
+        <ion-text color="danger" *ngIf="registerForm.get('genero')?.invalid && registerForm.get('genero')?.touched">
+          El género es obligatorio.
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Correo Electrónico</ion-label>
         <ion-input formControlName="correo" type="email" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('correo')?.invalid && registerForm.get('correo')?.touched">
+          <span *ngIf="registerForm.get('correo')?.errors?.['required']">El correo electrónico es obligatorio.</span>
+          <span *ngIf="registerForm.get('correo')?.errors?.['email']">Debe ser un correo electrónico válido.</span>
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Contraseña</ion-label>
         <ion-input formControlName="password" type="password" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          <span *ngIf="registerForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</span>
+          <span *ngIf="registerForm.get('password')?.errors?.['minlength']">Debe tener al menos 4 caracteres.</span>
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Confirmar Contraseña</ion-label>
         <ion-input formControlName="confirmPassword" type="password" required></ion-input>
-        <ion-text color="danger" *ngIf="registerForm.get('confirmPassword')?.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched">
-          Las contraseñas no coinciden.
+        <ion-text color="danger" *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+          <span *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Confirmar contraseña es obligatorio.</span>
+          <span *ngIf="registerForm.get('confirmPassword')?.errors?.['passwordMismatch']">Las contraseñas no coinciden.</span>
         </ion-text>
       </ion-item>
 
@@ -54,27 +76,42 @@
           <ion-select-option value="Fonasa">Fonasa</ion-select-option>
           <ion-select-option value="Isapre">Isapre</ion-select-option>
         </ion-select>
+        <ion-text color="danger" *ngIf="registerForm.get('afiliacionSalud')?.invalid && registerForm.get('afiliacionSalud')?.touched">
+          La afiliación de salud es obligatoria.
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Dirección</ion-label>
         <ion-input formControlName="direccion" type="text" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('direccion')?.invalid && registerForm.get('direccion')?.touched">
+          La dirección es obligatoria.
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Nombre Completo del Hijo</ion-label>
         <ion-input formControlName="nombreHijo" type="text" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('nombreHijo')?.invalid && registerForm.get('nombreHijo')?.touched">
+          El nombre del hijo es obligatorio.
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Edad del Hijo</ion-label>
         <ion-input formControlName="edadHijo" type="number" required></ion-input>
+        <ion-text color="danger" *ngIf="registerForm.get('edadHijo')?.invalid && registerForm.get('edadHijo')?.touched">
+          <span *ngIf="registerForm.get('edadHijo')?.errors?.['required']">La edad del hijo es obligatoria.</span>
+          <span *ngIf="registerForm.get('edadHijo')?.errors?.['max']">Debe ser menor de 18 años.</span>
+        </ion-text>
       </ion-item>
     </ion-list>
 
     <ion-button expand="block" (click)="registrar()">Registrar</ion-button>
   </form>
 </ion-content>
+
+
 
 
 

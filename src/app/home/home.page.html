@@ -1,11 +1,10 @@
-<ion-content scrollY="true">
+<ion-content scrollY="true" [@slideInAnimation]>
   <ion-card class="custom-card">
     <img alt="Silhouette of mountains" src="https://www.hola.com/images/027f-179ba38a9ab8-c668a77fed6f-1000/horizontal-1200/acudir-a-un-psiquiatra-infantil.jpg" />
     <ion-card-header>
       <ion-card-title>Bienvenido a nuestra comunidad</ion-card-title>
       <ion-card-subtitle>Descubre cómo podemos ayudarte</ion-card-subtitle>
     </ion-card-header>
-
     <ion-card-content>
       ¿Buscas un espacio seguro y profesional para el bienestar de tu hijo/a? ¡Has llegado al lugar correcto! En nuestra comunidad, nos especializamos en el cuidado psiquiátrico infantil, brindando apoyo emocional y terapias adaptadas a las necesidades de cada niño/a. ¡Únete a nosotros y comienza el viaje hacia una vida más feliz y equilibrada para tu familia!
     </ion-card-content>
@@ -17,11 +16,49 @@
       <ion-card-title>Sesiones 100% Presenciales</ion-card-title>
       <ion-card-subtitle>¿Dónde encontrarnos?</ion-card-subtitle>
     </ion-card-header>
-
     <ion-card-content>
       Av. Luis Thayer Ojeda 166, Oficina 301, 7510017 Providencia, Región Metropolitana
     </ion-card-content>
     <ion-button fill="clear" href="https://www.google.com/maps/place/FLMEDICA/@-33.4730145,-70.7525184,12z/data=!4m9!1m2!2m1!1spsiquiatra+infantil+chile!3m5!1s0x9662cf593e860c25:0x12fc8204e3c91715!8m2!3d-33.4199314!4d-70.6019279!16s%2Fg%2F11t7l445p5?entry=ttu">Ver en Maps</ion-button>
   </ion-card>
+
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Nuestros doctores</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list [inset]="true">
+        <ion-item-sliding *ngFor="let doctor of doctors">
+          <ion-item [button]="true">
+            <ion-avatar aria-hidden="true" slot="start" class="doctor-avatar">
+              <img [src]="doctor.photo" alt="Doctor Avatar" />
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ doctor.firstName }} {{ doctor.lastName }}</h2>
+              <h3>Universidad:</h3> <p>{{ doctor.university }}</p>
+              <h3>Especialidades:</h3> <p>{{ doctor.specialties.join(', ') }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="warning">
+              <ion-icon name="share-social-outline"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="medium" (click)="showDoctorDetails(doctor)">
+              <ion-icon name="information-circle-outline"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="success">
+              <ion-icon name="call-outline"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+
+
+
+
+
 
